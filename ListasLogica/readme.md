@@ -10,7 +10,7 @@
 5. Indique se o número apresentado é um número inteiro ou de ponto flutuante:
 
 | Número  |  Tipo Númerico  |
-| ------- | --------------- |
+| :-----: | :-------------: |
 |  5 |  int |
 |  5.0 |  float |
 |  4.3 |  float |

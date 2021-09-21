@@ -13,44 +13,61 @@ namespace Phonebook
     }
     static void mockContatos()
     {
-      ArrayList contato = new ArrayList(13);
-      ArrayList contato2 = new ArrayList(13);
+      ArrayList contato = new ArrayList(11);
+      ArrayList contato2 = new ArrayList(11);
+      ArrayList contato3 = new ArrayList(11);
 
-      contato.Add("Marcilio");
-      contato.Add("Junior");
+      contato.Add("Vieira");
+      contato.Add("Soveral");
       contato.Add((TipoContato)2);
       contato.Add(81);
-      contato.Add(95919313);
-      contato.Add("jrsmarcilio@gmail.com");
-      contato.Add("Eng do Meio");
+      contato.Add(99999999);
+      contato.Add("valentino@g.com");
+      contato.Add("Engenho do Meio");
       contato.Add("Recife");
       contato.Add("PE");
-      contato.Add(02);
-      contato.Add(04);
-      contato.Add(1993);
+      DateTime date = new DateTime(1993, 04, 02);
+      contato.Add(date);
+      contato.Add(quantDiasFaltamParaProximoAniversario(04, 02));
       contato.Add("Observações");
 
-      contato2.Add("Marcilio");
-      contato2.Add("Mendonca");
+      contato2.Add("Rebeca");
+      contato2.Add("Gaspar");
       contato2.Add((TipoContato)0);
       contato2.Add(81);
-      contato2.Add(95919313);
-      contato2.Add("mdmendonca@gmail.com");
+      contato2.Add(9999999);
+      contato2.Add("beca-gaspar@g.com");
       contato2.Add("Santana");
       contato2.Add("Jaboatao");
       contato2.Add("PE");
-      contato2.Add(02);
-      contato2.Add(04);
-      contato2.Add(1993);
+      DateTime date2 = new DateTime(1995, 12, 01);
+      contato2.Add(date2);
+      contato2.Add(quantDiasFaltamParaProximoAniversario(12, 01));
       contato2.Add("Observações");
+
+      contato3.Add("Feliz");
+      contato3.Add("Natal");
+      contato3.Add((TipoContato)0);
+      contato3.Add(12);
+      contato3.Add(25252525);
+      contato3.Add("noite-feliz@g.com");
+      contato3.Add("Natal");
+      contato3.Add("Rio Grande do Norte");
+      contato3.Add("PE");
+      DateTime date3 = new DateTime(1995, 12, 25);
+      contato3.Add(date3);
+      contato3.Add(quantDiasFaltamParaProximoAniversario(12, 25));
+      contato3.Add("Ho! ho! ho!");
 
       phonebook.Add(contato);
       phonebook.Add(contato2);
+      phonebook.Add(contato3);
       menu();
     }
     static void inserirContato()
     {
-      ArrayList contato = new ArrayList(13);
+      ArrayList contato = new ArrayList(11);
+
       Console.WriteLine("Informe seu nome: ");
       contato.Add(Console.ReadLine());
 
@@ -83,13 +100,17 @@ namespace Phonebook
       contato.Add(Console.ReadLine());
 
       Console.WriteLine("Informe o dia do aniversário: ");
-      contato.Add(Console.ReadLine());
+      int dia = int.Parse(Console.ReadLine());
 
       Console.WriteLine("Informe o mês do aniversário: ");
-      contato.Add(Console.ReadLine());
+      int mes = int.Parse(Console.ReadLine());
 
       Console.WriteLine("Informe o ano de nascimento: ");
-      contato.Add(Console.ReadLine());
+      int ano = int.Parse(Console.ReadLine());
+
+      DateTime date = new DateTime(ano, mes, dia);
+      contato.Add(date);
+      contato.Add(quantDiasFaltamParaProximoAniversario(mes, dia));
 
       Console.WriteLine("Observações: ");
       contato.Add(Console.ReadLine());
@@ -98,22 +119,21 @@ namespace Phonebook
     }
     static void imprimirContato(ArrayList contato, int index)
     {
-
+      var aniversarioEm = (int)contato[10] == 0 ? "Próximo ano" : (contato[10] + " dias");
       using (DataTable dt = new DataTable("Contato"))
       {
         dt.Columns.Add("#", typeof(int));
         dt.Columns.Add("Nome", typeof(string));
-        dt.Columns.Add("Sobrenome", typeof(string));
-        dt.Columns.Add("Telefone", typeof(string));
         dt.Columns.Add("Tipo", typeof(string));
-        dt.Columns.Add("Cidade", typeof(string));
+        dt.Columns.Add("Telefone", typeof(string));
+        dt.Columns.Add("Email", typeof(string));
+        dt.Columns.Add("Dias p/ Aniversário", typeof(string));
 
-        dt.Rows.Add(index, contato[0], contato[1], (contato[3] + " " + contato[4]),
-         contato[2], contato[7]);
+        dt.Rows.Add(index, contato[0], contato[2], (contato[3] + " " + contato[4]), contato[5], aniversarioEm);
 
         foreach (DataRow dr in dt.Rows)
         {
-          Console.WriteLine("# {0} \t Nome: {1} \t Sobrenome: {2} \t Telefone: {3} \t Tipo: {4} \t Cidade: {5}", dr[0], dr[1], dr[2], dr[3], dr[4], dr[5]);
+          Console.WriteLine("# {0} \tNome: {1} \tTipo: {2} \tTelefone: {3} \tEmail: {4} \tAniversário em: {5}", dr[0], dr[1], dr[2], dr[3], dr[4], dr[5]);
         }
       }
     }
@@ -194,23 +214,40 @@ namespace Phonebook
         System.Console.WriteLine("O ID informado não confere com os contatos cadastrados.");
       }
     }
+    static int quantDiasFaltamParaProximoAniversario(int mes, int dia)
+    {
+      if (mes > DateTime.Now.Month && dia > DateTime.Now.Day)
+      {
+        DateTime DataAniversario = new DateTime(2021, mes, dia);
+        return (int)DataAniversario.Subtract(DateTime.Today).TotalDays;
+      }
+      else
+      {
+        return 0;
+      }
+      // CultureInfo culture = new CultureInfo("pt-BR");
+      // Console.WriteLine(thisDate.ToString("d", culture));
+    }
     static void menu()
     {
       int opcao = 1;
       do
       {
-        Console.WriteLine("1 - Adicionar contato\n2 - Buscar pelo primeiro nome\n3 - Buscar por nome completo\n4 - Buscar por Tipo de Contato\n5 - Buscar por cidade\n6 - Remover contato\n0 - Sair");
+        Console.WriteLine("1 - Adicionar contato\n2 - Buscar pelo primeiro nome\n3 - Buscar por nome completo\n4 - Buscar por Tipo de Contato\n5 - Buscar por cidade\n6 - Remover contato\n7 - Listar contatos\n0 - Sair");
         opcao = int.Parse(Console.ReadLine());
 
         switch (opcao)
         {
           case 1:
+            System.Console.WriteLine("A opção para adicionar contato foi selecionada.");
             inserirContato();
             break;
           case 2:
+            System.Console.WriteLine("Buscar contato pelo primeiro nome: >>> ");
             buscarPeloPrimeiroNome(Console.ReadLine());
             break;
           case 3:
+            System.Console.WriteLine("Buscar contato por nome completo: >>> ");
             buscarPorNomeCompleto(Console.ReadLine());
             break;
           case 4:
@@ -222,18 +259,28 @@ namespace Phonebook
             buscarPorTipoContato((TipoContato)(int.Parse(Console.ReadLine())));
             break;
           case 5:
+            System.Console.WriteLine("Buscar contato pela cidade: >>> ");
             buscarPorCidade(Console.ReadLine());
             break;
           case 6:
+            System.Console.WriteLine("A opção para deletar contato foi selecionada.");
             foreach (ArrayList contato in phonebook)
             {
               imprimirContato(contato, (int)phonebook.IndexOf(contato));
             }
-            // Console.WriteLine("\nA opção remover contato foi selecionada: ");
-            // Console.WriteLine("Informe o id do contato para remoção: ");
+            Console.WriteLine("\nA opção remover contato foi selecionada: ");
+            Console.WriteLine("Informe o id do contato para remoção: ");
             removerContato(int.Parse(Console.ReadLine()));
             break;
+          case 7:
+          System.Console.WriteLine("Listando os contatos armazenados.");
+          foreach (ArrayList contato in phonebook)
+          {
+            imprimirContato(contato, (int)phonebook.IndexOf(contato));
+          }
+          break;
           case 0:
+            System.Console.WriteLine("Saindo do app phonebook...Bye!");
             Environment.Exit(0);
             break;
         }
@@ -241,17 +288,8 @@ namespace Phonebook
     }
     static void Main(string[] args)
     {
-
       mockContatos();
       menu();
-
-      int i = 0;
-      foreach (ArrayList contato in phonebook)
-      {
-        Console.WriteLine("Nome: {0}\nTelefone: {1}\nTipo de Contato: {2}\n", contato[i], contato[i + 1], contato[i + 2]);
-      }
-
-      System.Console.WriteLine(phonebook);
     }
   }
 }

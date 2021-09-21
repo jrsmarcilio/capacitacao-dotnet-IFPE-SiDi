@@ -1,0 +1,16 @@
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/bin/Debug/net5.0/Phonebook
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/bin/Debug/net5.0/Phonebook.deps.json
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/bin/Debug/net5.0/Phonebook.runtimeconfig.json
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/bin/Debug/net5.0/Phonebook.runtimeconfig.dev.json
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/bin/Debug/net5.0/Phonebook.dll
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/bin/Debug/net5.0/ref/Phonebook.dll
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/bin/Debug/net5.0/Phonebook.pdb
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/Phonebook.csproj.AssemblyReference.cache
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/Phonebook.GeneratedMSBuildEditorConfig.editorconfig
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/Phonebook.AssemblyInfoInputs.cache
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/Phonebook.AssemblyInfo.cs
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/Phonebook.csproj.CoreCompileInputs.cache
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/Phonebook.dll
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/ref/Phonebook.dll
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/Phonebook.pdb
+/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/Debug/net5.0/Phonebook.genruntimeconfig.cache

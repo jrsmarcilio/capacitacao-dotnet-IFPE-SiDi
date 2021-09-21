@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/Phonebook.csproj": {}
+  },
+  "projects": {
+    "/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/Phonebook.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/Phonebook.csproj",
+        "projectName": "Phonebook",
+        "projectPath": "/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/Phonebook.csproj",
+        "packagesPath": "/home/jrsmarc/.nuget/packages/",
+        "outputPath": "/home/jrsmarc/www/Projetos/csharp/capacitacao-dotnet-IFPE-SiDi/Phonebook/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jrsmarc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

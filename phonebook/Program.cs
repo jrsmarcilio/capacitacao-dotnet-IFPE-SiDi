@@ -32,7 +32,7 @@ namespace Phonebook
       }
 
       public override String ToString() =>
-        $"\n# {id} \tNome: {firstName} \tTipo do Contato: {contactType} \tTelefone: {cellphoneCode + " " + cellphone} \tEmail: {email}";
+        $"\n# {id} \tNome: {firstName} \tTipo: {contactType} \tTelefone: {cellphoneCode + " " + cellphone} \tEmail: {email} \tAniversário em: {DaysToBirthday(birthDate)}";
     }
     public enum ContactType
     {
@@ -94,6 +94,64 @@ namespace Phonebook
     static void RemoveContact(int id)
     {
       Phonebook.RemoveAt(id);
+    }
+    static void LoadContacts()
+    {
+      Contact contact = new Contact();
+      Contact contact2 = new Contact();
+      Contact contact3 = new Contact();
+
+      contact.id = 0;
+      contact2.id = 1;
+      contact3.id = 2;
+
+      contact.firstName = "Homer Simpson";
+      contact2.firstName = "Bart Simpson";
+      contact3.firstName = "Natal";
+
+      contact.lastName = "LastName";
+      contact2.lastName = "LastName";
+      contact3.lastName = "LastName";
+
+      contact.cellphone = "9 9999-9999";
+      contact2.cellphone = "9 9999-9999";
+      contact3.cellphone = "9 9999-9999";
+
+      contact.cellphoneCode = 81;
+      contact2.cellphoneCode = 81;
+      contact3.cellphoneCode = 81;
+
+      contact.contactType = ((ContactType)0);
+      contact2.contactType = ((ContactType)1);
+      contact3.contactType = ((ContactType)2);
+
+      contact.email = "mailto.mail.com";
+      contact2.email = "mailto.mail.com";
+      contact3.email = "mailto.mail.com";
+
+      contact.birthDate = new DateTime(1993, 04, 02);
+      contact2.birthDate = new DateTime(2000, 08, 01);
+      contact3.birthDate = new DateTime(2000, 12, 25);
+
+      contact.district = "Engenho do meio";
+      contact2.district = "Santana";
+      contact3.district = "Maranguape I";
+
+      contact.city = "Recife";
+      contact2.city = "Jaboatão";
+      contact3.city = "Paulista";
+
+      contact.state = "PE";
+      contact2.state = "PE";
+      contact3.state = "PE";
+
+      contact.comments = "null";
+      contact2.comments = "null";
+      contact3.comments = "null";
+
+      Phonebook.Add(contact);
+      Phonebook.Add(contact2);
+      Phonebook.Add(contact3);
     }
     static Contact SearchContactFirstName(string firstName)
     {
@@ -221,7 +279,7 @@ namespace Phonebook
             break;
           case 7:
             System.Console.WriteLine("A opção de listagem dos contatos foi selecionada.");
-            if(Phonebook.Count.Equals(0))
+            if (Phonebook.Count.Equals(0))
             {
               System.Console.WriteLine("Nenhum contato cadastrado.");
             }
@@ -240,11 +298,8 @@ namespace Phonebook
     }
     static void Main(string[] args)
     {
-      // mockContatos();
-      // menu();
-
+      LoadContacts();
       OptionsMenu();
-
     }
   }
 }
